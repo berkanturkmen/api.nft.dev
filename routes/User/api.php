@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'users',
-    'as' => 'User',
+    'as' => 'users.',
 ], function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
     Route::post('/', [UserController::class, 'store'])->name('store');
