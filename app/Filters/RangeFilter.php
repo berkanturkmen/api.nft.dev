@@ -36,6 +36,7 @@ class RangeFilter
     {
         return [
             'created_at',
+            'price',
         ];
     }
 }
