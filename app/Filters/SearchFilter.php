@@ -17,11 +17,13 @@ class SearchFilter
     public function handle(Builder $builder, Closure $next): Builder
     {
         if (! empty($this->data['search'])) {
-            $search = $this->data['search'];
+            $terms = explode(',', $this->data['search']);
 
-            $builder->where(function ($query) use ($search) {
-                foreach (self::getFields() as $field) {
-                    $query->orWhere($field, 'LIKE', "%{$search}%");
+            $builder->where(function ($query) use ($terms) {
+                foreach ($terms as $search) {
+                    foreach (self::getFields() as $field) {
+                        $query->orWhere($field, 'LIKE', "%{$search}%");
+                    }
                 }
             });
         }
