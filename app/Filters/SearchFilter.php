@@ -35,6 +35,8 @@ class SearchFilter
     {
         return [
             'name',
+            'type',
+            'currency',
         ];
     }
 }
